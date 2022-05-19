@@ -51,10 +51,26 @@ print(f"\nThe green array looks like this: \n{greenArray}\n")
 # This section will conduct a band math operation on the blue and green arrays completed in the section immediately prior.
 
 
+#multiply output values by 1000
+
+ratioBlueArrayOutput = blueArrayOutput * 1000
+ratioGreenArrayOutput = greenArrayOutput * 1000
+
+#calculate natural log of ratio output
+
+lnBlueArrayOutput = np.log(ratioGreenArrayOutput)
+lnGreenArrayOutput = np.log(ratioBlueArrayOutput)
+
+#calculate band ratio
+ratioImage = lnBlueArrayOutput/lnGreenArrayOutput
+
 
 
 
 # from PIL import Image
 # # Convert the resultant NumPy array into a PIL image using this code: (Requires import PIL as Image)
-# ratioImage = Image.fromarray(ratioArray)
-# ratioImage.save('Blue_Green_Ratio.tif')
+import PIL as Image
+
+
+ratioImage = Image.fromarray(ratioArray)
+ratioImage.save('Blue_Green_Ratio.tif')
